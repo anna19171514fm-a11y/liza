@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no" />
+<title>З Днем Народження, Лізо</title>
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Тепле помаранчеве тло з ромашками присутнє на всіх етапах -->
+  <div id="scene">
+
+    <!-- Шар ромашок (генерується у script.js) -->
+    <div id="daisy-field" aria-hidden="true"></div>
+
+    <!-- ===================== ЕТАП 1: КОНВЕРТ ===================== -->
+    <section id="stage-1" class="stage active">
+      <div id="envelope" tabindex="0" role="button" aria-label="Відкрити конверт">
+        <div class="envelope-shadow"></div>
+        <!-- Конверт зображено двома картинками (закритий / відкритий),
+             які плавно змінюють одна одну — див. assets/decor/envelope-closed.png
+             та envelope-open.png. Заміни їх на свої ілюстрації. -->
+        <img class="envelope-img envelope-closed" src="assets/decor/envelope-closed.png" alt="" />
+        <img class="envelope-img envelope-open" src="assets/decor/envelope-open.png" alt="" />
+
+        <div class="letter-card">
+          <div class="letter-inner">
+            <img id="lisa-photo-main" src="assets/lisa-photos/lisa.png" alt="Ліза" />
+            <p id="greeting-text"><!-- ТЕКСТ ПРИВІТАННЯ РЕДАГУЄТЬСЯ В script.js (GREETING_TEXT) --></p>
+            <button id="btn-continue" class="btn-cute">ТИЦЯЙ СЮДИ</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== ЕТАП 3: ЧАТ ===================== -->
+    <section id="stage-3" class="stage">
+      <div id="phone">
+        <div class="phone-screen">
+          <div class="phone-statusbar">
+            <span class="phone-time">21:11</span>
+            <span class="phone-icons">••• 100%</span>
+          </div>
+          <div class="phone-header">
+            <span class="phone-back">‹</span>
+            <img class="phone-avatar" src="assets/gdragon-photos/gdragon-avatar.jpg" alt="Сладусік" />
+            <span class="phone-contact-name">Сладусік <span class="dragon-emoji">🐉</span></span>
+          </div>
+          <div id="chat-messages"></div>
+          <div id="chat-typing" class="chat-typing" hidden>Сладусік пише...<span class="dots"><span>.</span><span>.</span><span>.</span></span></div>
+        </div>
+      </div>
+      <button id="arrow-next" class="arrow-btn" aria-label="Далі" hidden>›</button>
+    </section>
+
+    <!-- ===================== ЕТАП 5: ПЕРЕХІД (потік ромашок) керується в JS/CSS через daisy-field ===================== -->
+
+    <!-- ===================== ЕТАП 6: ПОДАРУНОК ===================== -->
+    <section id="stage-6" class="stage">
+  
+      <h1 id="happy-birthday-text" aria-hidden="true">HAPPY BIRTHDAY</h1>
+      <div id="gift-scene">
+        <img class="gift-bear gift-bear-left" src="assets/decor/bear.png" alt="" />
+        <div id="gift-box" tabindex="0" role="button" aria-label="Відкрити подарунок">
+          <img class="gift-base-img" src="assets/decor/gift-base.png" alt="" />
+          <img class="gift-lid-img" src="assets/decor/gift-lid.png" alt="" />
+          <div class="gift-glow"></div>
+
+          <!-- ==== ВМІСТ ПОДАРУНКА: фото, що вискакує при відкритті ==== -->
+          <div id="gift-content" hidden>
+            <img id="gift-photo"  style="width: 100%; height: 100%; object-fit: contain;" src="assets/decor/tinumiki.png" alt="сюрприз" />
+          </div>
+        </div>
+        <img class="gift-bear gift-bear-right" src="assets/decor/bear.png" alt="" />
+      </div>
+    </section>
+
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
